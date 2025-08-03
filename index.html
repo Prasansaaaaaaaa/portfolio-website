@@ -1,130 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prasamsha Nepal</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #9e2121;
-            color: #333;
-            overflow-x: hidden;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prasamsha Nepal</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0; /* soft cream */
+      color: #4a4a4a; /* dark gray */
+      overflow-x: hidden;
+    }
+    header {
+      background-color: #f9c5d1; /* pastel pink */
+      color: #6b3e48; /* deep rose */
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(230, 190, 200, 0.5);
+    }
+    header h1 {
+      margin: 0 0 8px 0;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 1.2px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #eebbc3; /* lighter pastel pink */
+      box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: #6b3e48;
+      padding: 16px 24px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+      border-radius: 8px 8px 0 0;
+      margin: 0 8px;
+    }
+    nav a:hover {
+      background-color: #6b3e48;
+      color: #fff8f0;
+      box-shadow: 0 4px 8px rgba(107, 62, 72, 0.3);
+    }
+    .container {
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      background: #fff0f5; /* very light pink */
+      padding: 25px 30px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(234, 188, 200, 0.3);
+      width: 100%;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      color: #7a3744;
+      border-bottom: 3px solid #f7b2c9;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+    section p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #5a3a44;
+    }
+    .button {
+      background-color: #f9c5d1;
+      color: #6b3e48;
+      padding: 12px 28px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(249, 197, 209, 0.6);
+      transition: background-color 0.3s, color 0.3s;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    .button:hover {
+      background-color: #6b3e48;
+      color: #fff8f0;
+      box-shadow: 0 6px 12px rgba(107, 62, 72, 0.5);
+      cursor: pointer;
+    }
+    footer.footer {
+      text-align: center;
+      padding: 14px 0;
+      background-color: #6b3e48;
+      color: #fff8f0;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      font-size: 0.9rem;
+      box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.1);
+      user-select: none;
+    }
+  </style>
+  <script>
+    document.addEventListener('scroll', function () {
+      const elements = document.querySelectorAll('section');
+      elements.forEach((el) => {
+        const position = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (position < windowHeight - 50) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
         }
-        header {
-            background-color: #34c3f7;
-            color: #7892873b;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-        }
-        nav a {
-            color: #981616;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #d67f7f;
-        }
-        .container {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .about, .projects, .contact {
-            margin-bottom: 40px;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 800px;
-            transform: translateY(100px);
-            opacity: 0;
-        }
-        .about h2, .projects h2, .contact h2 {
-            border-bottom: 2px solid #f391c7;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #921717;
-        }
-        .footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-        }
-        .button {
-            background-color: #f38484;
-            color: rgb(145, 40, 40);
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #cc0000;
-        }
-        .scroll-animation {
-            transition: transform 0.5s, opacity 0.5s;
-        }
-        .visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    </style>
-    <script>
-        document.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.scroll-animation');
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (position < windowHeight - 50) {
-                    element.classList.add('visible');
-                } else {
-                    element.classList.remove('visible');
-                }
-            });
-        });
-    </script>
+      });
+    });
+  </script>
 </head>
 <body>
-    <header>
-        <h1>Prasamsha Nepal</h1>
-        <p>Web Developer | Tech Enthusiast | Lifelong Learne</p>
-    </header>
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="container">
-        <section id="about" class="about scroll-animation">
-            <h2>About Me</h2>
-            <p>Hello! I'm Prasamsha Nepal, a punctual individual passionate about web development. I created this website to showcase my interest in web development. Stay tuned for more updates and my upcoming projects!</p>
-        </section>
-        <section id="projects" class="projects scroll-animation">
-            <h2>Projects</h2>
-            <p>Check out my latest projects below:</p>
-            <a href="#" class="button">View Project</a>
-        </section>
-        <section id="contact" class="contact scroll-animation">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, please email me at <a href="mailto:prasamshan8@gmail.com">prasamshan8@gmail.com</a></p>
-        </section>
-    </div>
-    <footer class="footer">
-        <p>&copy; 2024 PRASAMSHANPL. All rights reserved.</p>
-    </footer>
+  <header>
+    <h1>Prasamsha Nepal</h1>
+    <p>Web Developer | Tech Enthusiast | Lifelong Learner</p>
+  </header>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm Prasamsha Nepal, a punctual individual passionate about web development. I created this website to showcase my interest in web development. Stay tuned for more updates and my upcoming projects!</p>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Check out my latest projects below:</p>
+      <a href="#" class="button">View Project</a>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you'd like to get in touch, please email me at <a href="mailto:prasamshan8@gmail.com" style="color:#6b3e48; font-weight:600;">prasamshan8@gmail.com</a></p>
+    </section>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2024 PRASAMSHANPL. All rights reserved.</p>
+  </footer>
 </body>
 </html>
