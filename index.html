@@ -5,123 +5,160 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prasamsha Nepal</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff8f0; /* soft cream */
-      color: #4a4a4a; /* dark gray */
-      overflow-x: hidden;
-    }
-    header {
-      background-color: #f9c5d1; /* pastel pink */
-      color: #6b3e48; /* deep rose */
-      padding: 30px 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(230, 190, 200, 0.5);
-    }
-    header h1 {
-      margin: 0 0 8px 0;
-      font-size: 2.8rem;
-      letter-spacing: 2px;
-    }
-    header p {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 600;
-      font-style: italic;
-      letter-spacing: 1.2px;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #eebbc3; /* lighter pastel pink */
-      box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.1);
-    }
-    nav a {
-      color: #6b3e48;
-      padding: 16px 24px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s, color 0.3s;
-      border-radius: 8px 8px 0 0;
-      margin: 0 8px;
-    }
-    nav a:hover {
-      background-color: #6b3e48;
-      color: #fff8f0;
-      box-shadow: 0 4px 8px rgba(107, 62, 72, 0.3);
-    }
-    .container {
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 900px;
-      margin: auto;
-    }
-    section {
-      background: #fff0f5; /* very light pink */
-      padding: 25px 30px;
-      margin-bottom: 40px;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(234, 188, 200, 0.3);
-      width: 100%;
-      max-width: 800px;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: transform 0.6s ease, opacity 0.6s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    section h2 {
-      color: #7a3744;
-      border-bottom: 3px solid #f7b2c9;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-    }
-    section p {
-      line-height: 1.6;
-      font-size: 1.1rem;
-      color: #5a3a44;
-    }
-    .button {
-      background-color: #f9c5d1;
-      color: #6b3e48;
-      padding: 12px 28px;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(249, 197, 209, 0.6);
-      transition: background-color 0.3s, color 0.3s;
-      display: inline-block;
-      margin-top: 15px;
-    }
-    .button:hover {
-      background-color: #6b3e48;
-      color: #fff8f0;
-      box-shadow: 0 6px 12px rgba(107, 62, 72, 0.5);
-      cursor: pointer;
-    }
-    footer.footer {
-      text-align: center;
-      padding: 14px 0;
-      background-color: #6b3e48;
-      color: #fff8f0;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      font-size: 0.9rem;
-      box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.1);
-      user-select: none;
-    }
-  </style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f0; 
+    color: #4a4a4a; 
+    overflow-x: hidden;
+  }
+
+  header {
+    background-color: #f9c5d1;
+    color: #6b3e48; 
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(230, 190, 200, 0.5);
+  }
+
+  header h1 {
+    margin: 0 0 8px 0;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+  }
+
+  header p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 1.2px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: #eebbc3; /* lighter pastel pink */
+    box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+    color: #6b3e48;
+    padding: 16px 24px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px 8px 0 0;
+    margin: 0 8px;
+  }
+
+  nav a:hover {
+    background-color: #6b3e48;
+    color: #fff8f0;
+    box-shadow: 0 4px 8px rgba(107, 62, 72, 0.3);
+  }
+
+  .container {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  section {
+    background: #fff0f5; /* very light pink */
+    padding: 25px 30px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(234, 188, 200, 0.3);
+    width: 100%;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  section h2 {
+    color: #7a3744;
+    border-bottom: 3px solid #f7b2c9;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  section p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #5a3a44;
+  }
+
+  .button {
+    background-color: #f9c5d1;
+    color: #6b3e48;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(249, 197, 209, 0.6);
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    margin-top: 15px;
+  }
+
+  .button:hover {
+    background-color: #6b3e48;
+    color: #fff8f0;
+    box-shadow: 0 6px 12px rgba(107, 62, 72, 0.5);
+    cursor: pointer;
+  }
+
+  footer.footer {
+    text-align: center;
+    padding: 14px 0;
+    background-color: #6b3e48;
+    color: #fff8f0;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    font-size: 0.9rem;
+    box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.1);
+    user-select: none;
+  }
+
+  /* 🔽 New styles for profile image 🔽 */
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .header-text {
+    text-align: left;
+  }
+
+  .header-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(107, 62, 72, 0.4);
+  }
+</style>
+
   <script>
     document.addEventListener('scroll', function () {
       const elements = document.querySelectorAll('section');
@@ -138,10 +175,17 @@
   </script>
 </head>
 <body>
-  <header>
-    <h1>Prasamsha Nepal</h1>
-    <p>Web Developer | Tech Enthusiast | Lifelong Learner</p>
-  </header>
+ <header>
+  <div class="header-content">
+    <div class="header-text">
+      <h1>Prasamsha Nepal</h1>
+      <p>Web Developer | Tech Enthusiast | Lifelong Learner</p>
+    </div>
+    <div class="header-image">
+      <img src="images/profile.jpeg" alt="Prasamsha Nepal" />
+    </div>
+  </div>
+</header>
   <nav>
     <a href="#about">About Me</a>
     <a href="#projects">Projects</a>
