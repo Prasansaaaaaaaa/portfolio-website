@@ -151,11 +151,20 @@
   }
 
   .header-image img {
-    width: 180px;
-    height: 180px;
-    border-radius: 150%;
-    object-fit: cover;
-    box-shadow: 0 4px 12px rgba(107, 62, 72, 0.5);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(107, 62, 72, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-image img:hover {
+  transform: rotate(-8deg) scale(1.45);
+  box-shadow: 0 6px 16px rgba(107, 62, 72, 0.6);
+  cursor: pointer;
+}
+
   }
 </style>
 
